@@ -125,6 +125,14 @@ public class Exception extends java.lang.RuntimeException implements haxe.lang.I
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	public haxe.root.Array<haxe.StackItem> __exceptionStack;
+	
 	public java.lang.Throwable __nativeException;
 	
 	public haxe.Exception __previousException;
@@ -143,10 +151,99 @@ public class Exception extends java.lang.RuntimeException implements haxe.lang.I
 	}
 	
 	
+	public java.lang.String details()
+	{
+		//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+		if (( this.get_previous() == null )) 
+		{
+			//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			java.lang.String tmp = ( "Exception: " + this.get_message() );
+			//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			haxe.root.Array<haxe.StackItem> tmp1 = this.get_stack();
+			//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			return ( tmp + (( (( tmp1 == null )) ? ("null") : (haxe._CallStack.CallStack_Impl_.toString(tmp1)) )) );
+		}
+		else
+		{
+			//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			java.lang.String result = "";
+			//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			haxe.Exception e = this;
+			//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			haxe.Exception prev = null;
+			//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			while (( e != null ))
+			{
+				//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+				if (( prev == null )) 
+				{
+					//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+					java.lang.String result1 = ( "Exception: " + e.get_message() );
+					//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+					haxe.root.Array<haxe.StackItem> tmp2 = e.get_stack();
+					//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+					result = ( ( result1 + (( (( tmp2 == null )) ? ("null") : (haxe._CallStack.CallStack_Impl_.toString(tmp2)) )) ) + result );
+				}
+				else
+				{
+					//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+					haxe.root.Array<haxe.StackItem> prevStack = haxe._CallStack.CallStack_Impl_.subtract(e.get_stack(), prev.get_stack());
+					//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+					result = ( ( ( ( "Exception: " + e.get_message() ) + (( (( prevStack == null )) ? ("null") : (haxe._CallStack.CallStack_Impl_.toString(prevStack)) )) ) + "\n\nNext " ) + result );
+				}
+				
+				//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+				prev = e;
+				//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+				e = e.get_previous();
+			}
+			
+			//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			return result;
+		}
+		
+	}
+	
+	
 	public java.lang.String get_message()
 	{
 		//line 73 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
 		return this.getMessage();
+	}
+	
+	
+	public haxe.Exception get_previous()
+	{
+		//line 77 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+		return this.__previousException;
+	}
+	
+	
+	public java.lang.Object get_native()
+	{
+		//line 81 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+		return ((java.lang.Object) (this.__nativeException) );
+	}
+	
+	
+	public haxe.root.Array<haxe.StackItem> get_stack()
+	{
+		//line 85 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+		haxe.root.Array<haxe.StackItem> _g = this.__exceptionStack;
+		//line 86 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+		if (( _g == null )) 
+		{
+			//line 87 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			return this.__exceptionStack = haxe.NativeStackTrace.toHaxe(this.__nativeException.getStackTrace(), null);
+		}
+		else
+		{
+			//line 88 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			haxe.root.Array<haxe.StackItem> s = _g;
+			//line 88 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			return s;
+		}
+		
 	}
 	
 	
@@ -253,6 +350,24 @@ public class Exception extends java.lang.RuntimeException implements haxe.lang.I
 					}
 					
 					
+					case 171351897:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("__exceptionStack")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							this.__exceptionStack = ((haxe.root.Array<haxe.StackItem>) (value) );
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return value;
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
 					case -488799720:
 					{
 						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
@@ -304,15 +419,15 @@ public class Exception extends java.lang.RuntimeException implements haxe.lang.I
 				//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
 				switch (field.hashCode())
 				{
-					case 1031438366:
+					case 1146707039:
 					{
 						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
-						if (field.equals("get_message")) 
+						if (field.equals("get_stack")) 
 						{
 							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
 							__temp_executeDef1 = false;
 							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
-							return ((haxe.lang.Function) (new haxe.lang.Closure(this, "get_message")) );
+							return ((haxe.lang.Function) (new haxe.lang.Closure(this, "get_stack")) );
 						}
 						
 						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
@@ -329,6 +444,134 @@ public class Exception extends java.lang.RuntimeException implements haxe.lang.I
 							__temp_executeDef1 = false;
 							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
 							return this.get_message();
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
+					case 1028059424:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("get_native")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return ((haxe.lang.Function) (new haxe.lang.Closure(this, "get_native")) );
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
+					case 109757064:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("stack")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return this.get_stack();
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
+					case 1098137024:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("get_previous")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return ((haxe.lang.Function) (new haxe.lang.Closure(this, "get_previous")) );
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
+					case -1273775369:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("previous")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return this.get_previous();
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
+					case 1031438366:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("get_message")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return ((haxe.lang.Function) (new haxe.lang.Closure(this, "get_message")) );
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
+					case -1052618729:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("native")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return this.get_native();
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
+					case 1557721666:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("details")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return ((haxe.lang.Function) (new haxe.lang.Closure(this, "details")) );
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
+					case 171351897:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("__exceptionStack")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return this.__exceptionStack;
 						}
 						
 						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
@@ -426,9 +669,43 @@ public class Exception extends java.lang.RuntimeException implements haxe.lang.I
 		//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
 		{
 			//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			boolean __temp_executeDef1 = true;
+			//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			if (( field != null )) 
+			{
+				//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+				switch (field.hashCode())
+				{
+					case -1052618729:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("native")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return ((double) (haxe.lang.Runtime.toDouble(this.get_native())) );
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
+				}
+				
+			}
+			
+			//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+			if (__temp_executeDef1) 
 			{
 				//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
 				return this.__hx_lookupField_f(field, throwErrors);
+			}
+			else
+			{
+				//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+				throw null;
 			}
 			
 		}
@@ -480,6 +757,54 @@ public class Exception extends java.lang.RuntimeException implements haxe.lang.I
 					}
 					
 					
+					case 1146707039:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("get_stack")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return this.get_stack();
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
+					case 1557721666:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("details")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return this.details();
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
+					case 1028059424:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("get_native")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return this.get_native();
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
 					case 1031438366:
 					{
 						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
@@ -489,6 +814,22 @@ public class Exception extends java.lang.RuntimeException implements haxe.lang.I
 							__temp_executeDef1 = false;
 							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
 							return this.get_message();
+						}
+						
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						break;
+					}
+					
+					
+					case 1098137024:
+					{
+						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+						if (field.equals("get_previous")) 
+						{
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							__temp_executeDef1 = false;
+							//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+							return this.get_previous();
 						}
 						
 						//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
@@ -523,6 +864,14 @@ public class Exception extends java.lang.RuntimeException implements haxe.lang.I
 		baseArr.push("__previousException");
 		//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
 		baseArr.push("__nativeException");
+		//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+		baseArr.push("__exceptionStack");
+		//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+		baseArr.push("native");
+		//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+		baseArr.push("previous");
+		//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
+		baseArr.push("stack");
 		//line 11 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\haxe\\Exception.hx"
 		baseArr.push("message");
 	}

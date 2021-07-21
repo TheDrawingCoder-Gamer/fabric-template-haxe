@@ -1,4 +1,6 @@
-haxe build.hxml
+gradle getDeps
+haxe --run BuildFromDirectory
+haxe compile.hxml
 # lol 
 rm -rf src/main/java
 cp -rf bin/src src/main/java

@@ -1,8 +1,0 @@
---class-path haxe-src
-net.bulbyvr.example
---java-lib-extern javathings/1.16.5.jar
---java-lib-extern javathings/fabric-api-0.37.0+1.16.jar
---java-lib-extern javathings/fabric-loader-0.11.6.jar
---java-lib-extern javathings/yarn-1.16.5+build.10-v2.jar
--L hxjava
---java bin

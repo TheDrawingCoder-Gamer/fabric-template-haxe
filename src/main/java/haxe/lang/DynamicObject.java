@@ -343,6 +343,12 @@ public class DynamicObject extends haxe.lang.HxObject
 		catch (java.lang.Throwable _g)
 		{
 			//line 1 "C:\\Users\\benha\\Documents\\GitHub\\mc-haxe\\?"
+			{
+				//line 1 "C:\\Users\\benha\\Documents\\GitHub\\mc-haxe\\?"
+				haxe.NativeStackTrace.exception.set(((java.lang.Throwable) (_g) ));
+			}
+			
+			//line 1 "C:\\Users\\benha\\Documents\\GitHub\\mc-haxe\\?"
 			java.lang.Object e = ((java.lang.Object) (haxe.Exception.caught(_g).unwrap()) );
 			//line 186 "C:\\HaxeToolkit\\haxe\\std\\java\\internal\\HxObject.hx"
 			 -- haxe.lang.DynamicObject.__hx_toString_depth;

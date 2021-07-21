@@ -23,6 +23,20 @@ public class Type extends haxe.lang.HxObject
 	}
 	
 	
+	public static <T> java.lang.Class getClass(T o)
+	{
+		//line 41 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		if (( ( ( o == null ) || haxe.root.Std.isOfType(o, haxe.lang.DynamicObject.class) ) || haxe.root.Std.isOfType(o, java.lang.Class.class) )) 
+		{
+			//line 42 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			return null;
+		}
+		
+		//line 44 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		return ((java.lang.Class) (((java.lang.Class) (((java.lang.Class) (o.getClass()) )) )) );
+	}
+	
+	
 	public static java.lang.Class getEnum(java.lang.Object o)
 	{
 		//line 48 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
@@ -34,6 +48,672 @@ public class Type extends haxe.lang.HxObject
 		
 		//line 51 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
 		return null;
+	}
+	
+	
+	public static java.lang.Class getSuperClass(java.lang.Class c)
+	{
+		//line 55 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		java.lang.Class c1 = ((java.lang.Class) (c) );
+		//line 56 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		java.lang.Class cl = ( (( ((java.lang.Object) (c1) ) == ((java.lang.Object) (null) ) )) ? (null) : (c1.getSuperclass()) );
+		//line 57 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		if (( ( ( ((java.lang.Object) (cl) ) != ((java.lang.Object) (null) ) ) &&  ! (haxe.lang.Runtime.valEq(cl.getName(), "haxe.lang.HxObject"))  ) &&  ! (haxe.lang.Runtime.valEq(cl.getName(), "java.lang.Object"))  )) 
+		{
+			//line 58 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			return ((java.lang.Class) (cl) );
+		}
+		
+		//line 60 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		return null;
+	}
+	
+	
+	public static java.lang.String getClassName(java.lang.Class c)
+	{
+		//line 64 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		java.lang.Class c1 = ((java.lang.Class) (c) );
+		//line 65 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		java.lang.String name = c1.getName();
+		//line 66 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		if (((java.lang.String) (((java.lang.Object) (name) )) ).startsWith(haxe.lang.Runtime.toString("haxe.root."))) 
+		{
+			//line 67 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			return haxe.lang.StringExt.substr(name, 10, null);
+		}
+		
+		//line 68 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		if (((java.lang.String) (((java.lang.Object) (name) )) ).startsWith(haxe.lang.Runtime.toString("java.lang"))) 
+		{
+			//line 69 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			name = haxe.lang.StringExt.substr(name, 10, null);
+		}
+		
+		//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		{
+			//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			java.lang.String __temp_svar1 = (name);
+			//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			int __temp_hash3 = __temp_svar1.hashCode();
+			//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			boolean __temp_executeDef2 = true;
+			//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			if (( __temp_svar1 != null )) 
+			{
+				//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				switch (__temp_hash3)
+				{
+					case -1325958191:
+					case 2052876273:
+					{
+						//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+						if (( (( ( __temp_hash3 == -1325958191 ) && __temp_svar1.equals("double") )) || __temp_svar1.equals("Double") )) 
+						{
+							//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							__temp_executeDef2 = false;
+							//line 73 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							return "Float";
+						}
+						
+						//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+						break;
+					}
+					
+					
+					case -1939501217:
+					{
+						//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+						if (__temp_svar1.equals("Object")) 
+						{
+							//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							__temp_executeDef2 = false;
+							//line 74 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							return "Dynamic";
+						}
+						
+						//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+						break;
+					}
+					
+					
+					case 104431:
+					case -672261858:
+					{
+						//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+						if (( (( ( __temp_hash3 == 104431 ) && __temp_svar1.equals("int") )) || __temp_svar1.equals("Integer") )) 
+						{
+							//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							__temp_executeDef2 = false;
+							//line 72 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							return "Int";
+						}
+						
+						//line 71 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+						break;
+					}
+					
+					
+				}
+				
+			}
+			
+			//line 75 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			if (__temp_executeDef2) 
+			{
+				//line 75 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				return name;
+			}
+			else
+			{
+				//line 75 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				throw null;
+			}
+			
+		}
+		
+	}
+	
+	
+	public static java.lang.String getEnumName(java.lang.Class e)
+	{
+		//line 80 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		java.lang.Class c = ((java.lang.Class) (e) );
+		//line 81 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		java.lang.String ret = c.getName();
+		//line 82 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		if (((java.lang.String) (((java.lang.Object) (ret) )) ).startsWith(haxe.lang.Runtime.toString("haxe.root."))) 
+		{
+			//line 83 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			return haxe.lang.StringExt.substr(ret, 10, null);
+		}
+		
+		//line 85 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		return ret;
+	}
+	
+	
+	public static java.lang.Class resolveClass(java.lang.String name)
+	{
+		//line 89 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		try 
+		{
+			//line 90 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			if (( haxe.lang.StringExt.indexOf(name, ".", null) == -1 )) 
+			{
+				//line 91 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				name = ( "haxe.root." + name );
+			}
+			
+			//line 93 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			return ((java.lang.Class) (java.lang.Class.forName(haxe.lang.Runtime.toString(name))) );
+		}
+		catch (java.lang.ClassNotFoundException e)
+		{
+			//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			{
+				//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				java.lang.String __temp_svar1 = (name);
+				//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				boolean __temp_executeDef2 = true;
+				//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				if (( __temp_svar1 != null )) 
+				{
+					//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					switch (__temp_svar1.hashCode())
+					{
+						case 360541844:
+						{
+							//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							if (__temp_svar1.equals("haxe.root.Class")) 
+							{
+								//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								__temp_executeDef2 = false;
+								//line 100 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								return java.lang.Class.class;
+							}
+							
+							//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							break;
+						}
+						
+						
+						case -1242153355:
+						{
+							//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							if (__temp_svar1.equals("haxe.root.String")) 
+							{
+								//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								__temp_executeDef2 = false;
+								//line 98 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								return java.lang.String.class;
+							}
+							
+							//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							break;
+						}
+						
+						
+						case -140489125:
+						{
+							//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							if (__temp_svar1.equals("haxe.root.Dynamic")) 
+							{
+								//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								__temp_executeDef2 = false;
+								//line 101 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								return java.lang.Object.class;
+							}
+							
+							//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							break;
+						}
+						
+						
+						case 704654956:
+						{
+							//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							if (__temp_svar1.equals("haxe.root.Math")) 
+							{
+								//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								__temp_executeDef2 = false;
+								//line 99 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								return java.lang.Math.class;
+							}
+							
+							//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							break;
+						}
+						
+						
+						case 363325304:
+						{
+							//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							if (__temp_svar1.equals("haxe.root.Float")) 
+							{
+								//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								__temp_executeDef2 = false;
+								//line 97 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								return double.class;
+							}
+							
+							//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							break;
+						}
+						
+						
+						case -1778387957:
+						{
+							//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							if (__temp_svar1.equals("haxe.root.Int")) 
+							{
+								//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								__temp_executeDef2 = false;
+								//line 96 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								return int.class;
+							}
+							
+							//line 95 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							break;
+						}
+						
+						
+					}
+					
+				}
+				
+				//line 102 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				if (__temp_executeDef2) 
+				{
+					//line 102 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					return null;
+				}
+				else
+				{
+					//line 102 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					throw null;
+				}
+				
+			}
+			
+		}
+		
+		
+	}
+	
+	
+	public static java.lang.Class resolveEnum(java.lang.String name)
+	{
+		
+		if ("Bool".equals(name)) return boolean.class;
+		Class r = resolveClass(name);
+		if (r != null && (r.getSuperclass() == java.lang.Enum.class || haxe.lang.Enum.class.isAssignableFrom(r)))
+			return r;
+		return null;
+	
+	}
+	
+	
+	public static <T> T createInstance(java.lang.Class cl, haxe.root.Array args)
+	{
+		//line 121 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		try 
+		{
+			//line 122 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			int nargs = args.length;
+			//line 122 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			java.lang.Object[] callArguments = new java.lang.Object[nargs];
+			//line 125 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			java.lang.reflect.Constructor[] ctors = ((java.lang.Class) (((java.lang.Class) (cl) )) ).getConstructors();
+			//line 125 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			int totalCtors = ctors.length;
+			//line 125 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			int validCtors = 0;
+			//line 129 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			{
+				//line 129 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				int _g = 0;
+				//line 129 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				int _g1 = totalCtors;
+				//line 129 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				while (( _g < _g1 ))
+				{
+					//line 129 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					int i = _g++;
+					//line 130 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					java.lang.reflect.Constructor ctor = ctors[i];
+					//line 131 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					java.lang.Class[] ptypes = ctor.getParameterTypes();
+					//line 132 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					if (( ( ptypes.length != nargs ) &&  ! (ctor.isVarArgs())  )) 
+					{
+						//line 133 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+						continue;
+					}
+					
+					//line 136 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					int argNum = -1;
+					//line 136 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					boolean valid = true;
+					//line 137 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					{
+						//line 137 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+						int _g2 = 0;
+						//line 137 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+						label2:
+						while (( _g2 < args.length ))
+						{
+							//line 137 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							java.lang.Object arg = args.__get(_g2);
+							//line 137 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							 ++ _g2;
+							//line 138 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							 ++ argNum;
+							//line 139 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							java.lang.Class expectedType = ( (( argNum < ptypes.length )) ? (ptypes[argNum]) : (ptypes[( ptypes.length - 1 )]) );
+							//line 140 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							boolean isDynamic = ( ( arg instanceof haxe.lang.DynamicObject ) && expectedType.isAssignableFrom(((java.lang.Class) (((java.lang.Object) (arg) ).getClass()) )) );
+							//line 141 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							java.lang.Class argType = ((java.lang.Class) (haxe.root.Type.getClass(((java.lang.Object) (arg) ))) );
+							//line 143 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+							if (( ( ( arg == null ) || isDynamic ) || ( ( ((java.lang.Object) (argType) ) != ((java.lang.Object) (null) ) ) && expectedType.isAssignableFrom(((java.lang.Class) (argType) )) ) )) 
+							{
+								//line 144 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								callArguments[argNum] = arg;
+							}
+							else
+							{
+								//line 145 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+								if (( haxe.lang.Runtime.valEq(expectedType.getName(), "boolean") && haxe.lang.Runtime.valEq(((java.lang.Class) (argType) ).getName(), "java.lang.Boolean") )) 
+								{
+									//line 146 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+									callArguments[argNum] = ((java.lang.Boolean) (arg) ).booleanValue();
+								}
+								else
+								{
+									//line 147 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+									if (( arg instanceof java.lang.Number )) 
+									{
+										//line 148 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+										java.lang.String name = expectedType.getName();
+										//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+										{
+											//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+											java.lang.String __temp_svar1 = (name);
+											//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+											int __temp_hash3 = __temp_svar1.hashCode();
+											//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+											boolean __temp_executeDef2 = true;
+											//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+											if (( __temp_svar1 != null )) 
+											{
+												//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+												switch (__temp_hash3)
+												{
+													case 398507100:
+													case 3039496:
+													{
+														//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+														if (( (( ( __temp_hash3 == 398507100 ) && __temp_svar1.equals("java.lang.Byte") )) || __temp_svar1.equals("byte") )) 
+														{
+															//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+															__temp_executeDef2 = false;
+															//line 157 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+															callArguments[argNum] = ((java.lang.Number) (arg) ).byteValue();
+														}
+														
+														//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+														break;
+													}
+													
+													
+													case 109413500:
+													case -515992664:
+													{
+														//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+														if (( (( ( __temp_hash3 == 109413500 ) && __temp_svar1.equals("short") )) || __temp_svar1.equals("java.lang.Short") )) 
+														{
+															//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+															__temp_executeDef2 = false;
+															//line 159 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+															callArguments[argNum] = ((java.lang.Number) (arg) ).shortValue();
+														}
+														
+														//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+														break;
+													}
+													
+													
+													case 761287205:
+													case -1325958191:
+													{
+														//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+														if (( (( ( __temp_hash3 == 761287205 ) && __temp_svar1.equals("java.lang.Double") )) || __temp_svar1.equals("double") )) 
+														{
+															//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+															__temp_executeDef2 = false;
+															//line 151 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+															callArguments[argNum] = ((java.lang.Number) (arg) ).doubleValue();
+														}
+														
+														//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+														break;
+													}
+													
+													
+													case -2056817302:
+													case 104431:
+													{
+														//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+														if (( (( ( __temp_hash3 == -2056817302 ) && __temp_svar1.equals("java.lang.Integer") )) || __temp_svar1.equals("int") )) 
+														{
+															//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+															__temp_executeDef2 = false;
+															//line 153 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+															callArguments[argNum] = ((java.lang.Number) (arg) ).intValue();
+														}
+														
+														//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+														break;
+													}
+													
+													
+													case -527879800:
+													case 97526364:
+													{
+														//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+														if (( (( ( __temp_hash3 == -527879800 ) && __temp_svar1.equals("java.lang.Float") )) || __temp_svar1.equals("float") )) 
+														{
+															//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+															__temp_executeDef2 = false;
+															//line 155 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+															callArguments[argNum] = ((java.lang.Number) (arg) ).floatValue();
+														}
+														
+														//line 149 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+														break;
+													}
+													
+													
+												}
+												
+											}
+											
+											//line 160 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+											if (__temp_executeDef2) 
+											{
+												//line 161 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+												valid = false;
+												//line 162 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+												break label2;
+											}
+											
+										}
+										
+									}
+									else
+									{
+										//line 165 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+										valid = false;
+										//line 166 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+										break;
+									}
+									
+								}
+								
+							}
+							
+						}
+						;
+					}
+					
+					//line 169 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					if ( ! (valid) ) 
+					{
+						//line 170 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+						continue;
+					}
+					
+					//line 174 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					ctor.setAccessible(haxe.lang.Runtime.toBool(((java.lang.Boolean) (true) )));
+					//line 175 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					return ((T) (ctor.newInstance(((java.lang.Object[]) (callArguments) ))) );
+				}
+				
+			}
+			
+			//line 178 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			throw ((java.lang.RuntimeException) (haxe.Exception.thrown(( "Could not find any constructor that matches the provided arguments for class " + haxe.root.Std.string(cl) ))) );
+		}
+		catch (java.lang.Throwable typedException)
+		{
+			//line 121 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			throw ((java.lang.RuntimeException) (haxe.Exception.thrown(typedException)) );
+		}
+		
+		
+	}
+	
+	
+	protected static final java.lang.Class[] __createEmptyInstance_EMPTY_TYPES = ((java.lang.Class[]) (new java.lang.Class[]{((java.lang.Class) (((java.lang.Class) (haxe.lang.EmptyObject.class) )) )}) );
+	
+	protected static final haxe.lang.EmptyObject[] __createEmptyInstance_EMPTY_ARGS = ((haxe.lang.EmptyObject[]) (new haxe.lang.EmptyObject[]{((haxe.lang.EmptyObject) (haxe.lang.EmptyObject.EMPTY) )}) );
+	
+	public static <T> T createEmptyInstance(java.lang.Class cl)
+	{
+		//line 185 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		try 
+		{
+			//line 186 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			java.lang.Class t = ((java.lang.Class) (((java.lang.Class) (cl) )) );
+			//line 187 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			try 
+			{
+				//line 188 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				java.lang.reflect.Constructor<T> ctor = ((java.lang.reflect.Constructor<T>) (((java.lang.reflect.Constructor) (t.getConstructor(((java.lang.Class[]) (haxe.root.Type.__createEmptyInstance_EMPTY_TYPES) ))) )) );
+				//line 189 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				return ctor.newInstance(((java.lang.Object[]) (haxe.root.Type.__createEmptyInstance_EMPTY_ARGS) ));
+			}
+			catch (java.lang.NoSuchMethodException _1)
+			{
+				//line 191 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				return ((T) (t.newInstance()) );
+			}
+			
+			
+		}
+		catch (java.lang.Throwable typedException)
+		{
+			//line 185 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			throw ((java.lang.RuntimeException) (haxe.Exception.thrown(typedException)) );
+		}
+		
+		
+	}
+	
+	
+	public static <T> T createEnum(java.lang.Class e, java.lang.String constr, haxe.root.Array params)
+	{
+		//line 196 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		if (( ( params == null ) || ( params.length == 0 ) )) 
+		{
+			//line 197 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			java.lang.Object ret = haxe.lang.Runtime.slowGetField(e, constr, true);
+			//line 198 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			if (( ret instanceof haxe.lang.Function )) 
+			{
+				//line 199 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				throw ((java.lang.RuntimeException) (haxe.Exception.thrown(( ( "Constructor " + constr ) + " needs parameters" ))) );
+			}
+			
+			//line 201 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			return ((T) (ret) );
+		}
+		else
+		{
+			//line 203 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			java.lang.Object[] ret1 = new java.lang.Object[params.length];
+			//line 203 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			{
+				//line 203 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				int _g = 0;
+				//line 203 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				int _g1 = params.length;
+				//line 203 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				while (( _g < _g1 ))
+				{
+					//line 203 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					int i = _g++;
+					//line 203 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					ret1[i] = params.__get(i);
+				}
+				
+			}
+			
+			//line 203 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			java.lang.Object[] params1 = ret1;
+			//line 204 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			return ((T) (haxe.lang.Runtime.slowCallField(e, constr, params1)) );
+		}
+		
+	}
+	
+	
+	public static <T> T createEnumIndex(java.lang.Class e, int index, haxe.root.Array params)
+	{
+		//line 209 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		haxe.root.Array<java.lang.String> constr = haxe.root.Type.getEnumConstructs(e);
+		//line 210 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		return ((T) (haxe.root.Type.createEnum(((java.lang.Class) (e) ), haxe.lang.Runtime.toString(constr.__get(index)), ((haxe.root.Array) (params) ))) );
+	}
+	
+	
+	public static haxe.root.Array<java.lang.String> getInstanceFields(java.lang.Class c)
+	{
+		
+		if (c == java.lang.String.class)
+		{
+			return haxe.lang.StringRefl.fields;
+		}
+
+		Array<String> ret = new Array<String>();
+		for (java.lang.reflect.Field f : c.getFields())
+		{
+			java.lang.String fname = f.getName();
+			if (!java.lang.reflect.Modifier.isStatic(f.getModifiers()) && !fname.startsWith("__hx_"))
+				ret.push(fname);
+		}
+
+		for (java.lang.reflect.Method m : c.getMethods())
+		{
+			if (m.getDeclaringClass() == java.lang.Object.class)
+				continue;
+			java.lang.String mname = m.getName();
+			if (!java.lang.reflect.Modifier.isStatic(m.getModifiers()) && !mname.startsWith("__hx_"))
+				ret.push(mname);
+		}
+
+		return ret;
+	
 	}
 	
 	
@@ -68,6 +748,76 @@ public class Type extends haxe.lang.HxObject
 	}
 	
 	
+	public static haxe.root.Array<java.lang.String> getEnumConstructs(java.lang.Class e)
+	{
+		//line 273 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		if (haxe.root.Reflect.hasField(e, "__hx_constructs")) 
+		{
+			//line 274 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			haxe.root.Array<java.lang.String> ret = haxe.java.Lib.array_String(((java.lang.String[]) (haxe.lang.Runtime.getField(e, "__hx_constructs", true)) ));
+			//line 275 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			return ret.copy();
+		}
+		
+		//line 277 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		java.lang.Enum[] vals = ((java.lang.Enum[]) (haxe.lang.Runtime.callField(e, "values", null)) );
+		//line 277 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		haxe.root.Array<java.lang.String> ret1 = new haxe.root.Array<java.lang.String>(new java.lang.String[]{});
+		//line 279 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		{
+			//line 279 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			int _g = 0;
+			//line 279 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			int _g1 = vals.length;
+			//line 279 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			while (( _g < _g1 ))
+			{
+				//line 279 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				int i = _g++;
+				//line 280 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				ret1.__set(i, vals[i].name());
+			}
+			
+		}
+		
+		//line 281 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		return ret1;
+	}
+	
+	
+	public static haxe.root.ValueType typeof(java.lang.Object v)
+	{
+		
+		if (v == null) return ValueType.TNull;
+
+		if (v instanceof haxe.lang.IHxObject) {
+			haxe.lang.IHxObject vobj = (haxe.lang.IHxObject) v;
+			java.lang.Class cl = vobj.getClass();
+			if (v instanceof haxe.lang.DynamicObject)
+				return ValueType.TObject;
+			else
+				return ValueType.TClass(cl);
+		} else if (v instanceof java.lang.Number) {
+			java.lang.Number n = (java.lang.Number) v;
+			if (n.intValue() == n.doubleValue())
+				return ValueType.TInt;
+			else
+				return ValueType.TFloat;
+		} else if (v instanceof haxe.lang.Function) {
+			return ValueType.TFunction;
+		} else if (v instanceof java.lang.Enum || v instanceof haxe.lang.Enum) {
+			return ValueType.TEnum(v.getClass());
+		} else if (v instanceof java.lang.Boolean) {
+			return ValueType.TBool;
+		} else if (v instanceof java.lang.Class) {
+			return ValueType.TObject;
+		} else {
+			return ValueType.TClass(v.getClass());
+		}
+	
+	}
+	
+	
 	public static <T> boolean enumEq(T a, T b)
 	{
 		
@@ -75,6 +825,25 @@ public class Type extends haxe.lang.HxObject
 				return a.equals(b);
 			else
 				return haxe.lang.Runtime.eq(a, b);
+	
+	}
+	
+	
+	public static java.lang.String enumConstructor(java.lang.Object e)
+	{
+		
+		if (e instanceof java.lang.Enum)
+			return ((java.lang.Enum) e).name();
+		else
+			return ((haxe.lang.Enum) e).getTag();
+	
+	}
+	
+	
+	public static haxe.root.Array enumParameters(java.lang.Object e)
+	{
+		
+		return ( e instanceof java.lang.Enum ) ? new haxe.root.Array() : ((haxe.lang.Enum) e).getParams();
 	
 	}
 	
@@ -87,6 +856,41 @@ public class Type extends haxe.lang.HxObject
 		else
 			return ((haxe.lang.Enum) e).index;
 	
+	}
+	
+	
+	public static <T> haxe.root.Array<T> allEnums(java.lang.Class e)
+	{
+		//line 360 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		haxe.root.Array<java.lang.String> ctors = haxe.root.Type.getEnumConstructs(e);
+		//line 361 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		haxe.root.Array<T> ret = new haxe.root.Array<T>(( (T[]) (new java.lang.Object[] {}) ));
+		//line 362 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		{
+			//line 362 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			int _g = 0;
+			//line 362 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+			while (( _g < ctors.length ))
+			{
+				//line 362 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				java.lang.String ctor = ctors.__get(_g);
+				//line 362 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				 ++ _g;
+				//line 363 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				T v = ((T) (haxe.root.Reflect.field(e, ctor)) );
+				//line 364 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+				if (haxe.root.Std.isOfType(v, e)) 
+				{
+					//line 365 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+					ret.push(v);
+				}
+				
+			}
+			
+		}
+		
+		//line 368 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Type.hx"
+		return ret;
 	}
 	
 	

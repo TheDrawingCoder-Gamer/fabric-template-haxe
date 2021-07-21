@@ -555,6 +555,12 @@ public final class Array<T> extends haxe.lang.HxObject
 		catch (java.lang.Throwable _g)
 		{
 			//line 1 "C:\\Users\\benha\\Documents\\GitHub\\mc-haxe\\?"
+			{
+				//line 1 "C:\\Users\\benha\\Documents\\GitHub\\mc-haxe\\?"
+				haxe.NativeStackTrace.exception.set(((java.lang.Throwable) (_g) ));
+			}
+			
+			//line 1 "C:\\Users\\benha\\Documents\\GitHub\\mc-haxe\\?"
 			java.lang.Object e = ((java.lang.Object) (haxe.Exception.caught(_g).unwrap()) );
 			//line 291 "C:\\HaxeToolkit\\haxe\\std\\java\\_std\\Array.hx"
 			 -- haxe.root.Array.__hx_toString_depth;
