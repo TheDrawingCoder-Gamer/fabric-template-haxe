@@ -1,3 +1,4 @@
+rm -rf javalibs
 gradle getDeps
 haxe --run BuildFromDirectory
 haxe compile.hxml
