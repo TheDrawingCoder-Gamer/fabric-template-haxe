@@ -39,7 +39,7 @@ processResources {
 	}
 }
 task getDeps(type: Copy) {
-  from sourceSets.main.runtimeClasspath
+  from sourceSets.main.compileClasspath
   into 'javalibs/'
 }
 tasks.withType(JavaCompile).configureEach {

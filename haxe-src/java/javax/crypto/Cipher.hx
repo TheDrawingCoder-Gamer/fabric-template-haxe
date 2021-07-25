@@ -1,0 +1,58 @@
+package java.javax.crypto;
+
+import java.security.Key;
+import java.security.SecureRandom;
+import java.javax.security.cert.Certificate;
+import java.security.AlgorithmParameters;
+import java.security.spec.AlgorithmParameterSpec;
+import java.nio.ByteBuffer;
+import java.lang.Byte;
+import java.security.Provider;
+
+extern class Cipher {
+    public static var DECRYPT_MODE:Int;
+	public static var ENCRYPT_MODE:Int;
+	public static var PRIVATE_KEY:Int;
+	public static var PUBLIC_KEY:Int;
+	public static var SECRET_KEY:Int;
+	public static var UNWRAP_MODE:Int;
+	public static var WRAP_MODE:Int;
+    function new(cipherSpi:CipherSpi, provider:Provider, transformation:String);
+    overload public function doFinal():Array<Byte>;
+	overload public function doFinal(input:Array<Byte>):Array<Byte>;
+	overload public function doFinal(output:Array<Byte>, outputOffset:Int):Int;
+	overload public function doFinal(input:Array<Byte>, inputOffset:Int, inputLen:Int):Array<Byte>;
+	overload public function doFinal(input:Array<Byte>, inputOffset:Int, inputLen:Int, output:Array<Byte>):Int;
+	overload public function doFinal(input:Array<Byte>, inputOffset:Int, inputLen:Int, output:Array<Byte>, outputOffset:Int):Int;
+    overload public function doFinal(input:ByteBuffer, output:ByteBuffer):Int;
+    public function getAlgorithm():String;
+    public function getBlockSize():Int;
+    public function getExemptionMechanism():ExemptionMechanism;
+    public static overload function getInstance(transformation:String):Cipher;
+	public static overload function getInstance(transformation:String, provider:String):Cipher;
+	public static overload function getInstance(transformation:String, provider:Provider):Cipher;
+    public function getIV():Array<Byte>;
+    public static function getMaxAllowedKeyLength(transformation:String):Int;
+    public static function getMaxAllowedParameterSpec(transformation:String):AlgorithmParameterSpec;
+    public function getOutputSize(inputLen:Int):Int;
+    public function getParameters():AlgorithmParameters;
+    public function getProvider():Provider;
+    public overload function init(opmode:Int, certificate:Certificate):Void;
+	public overload function init(opmode:Int, certificate:Certificate, random:SecureRandom):Void;
+	public overload function init(opmode:Int, key:Key):Void;
+	public overload function init(opmode:Int, key:Key, params:AlgorithmParameters):Void;
+	public overload function init(opmode:Int, key:Key, params:AlgorithmParameterSpec):Void;
+	public overload function init(opmode:Int, key:Key, params:AlgorithmParameters, random:SecureRandom):Void;
+	public overload function init(opmode:Int, key:Key, params:AlgorithmParameterSpec, random:SecureRandom):Void;
+	public overload function init(opmode:Int, key:Key, random:SecureRandom):Void;
+    public function unwrap(wrappedKey:Array<Byte>, wrappedKeyAlgorithm:String, wrappedKeyType:Int):Key;
+    public overload function update(input:Array<Byte>):Array<Byte>;
+	public overload function update(input:Array<Byte>, inputOffset:Int, inputLen:Int):Array<Byte>;
+	public overload function update(input:Array<Byte>, inputOffset:Int, inputLen:Int, output:Array<Byte>):Int;
+	public overload function update(input:Array<Byte>, inputOffset:Int, inputLen:Int, output:Array<Byte>, outputOffset:Int):Int;
+    public overload function update(input:ByteBuffer, output:ByteBuffer):Int;
+    public overload function updateAAD(src:Array<Byte>):Void;
+	public overload function updateAAD(src:Array<Byte>, offset:Int, len:Int):Void;
+	public overload function updateAAD(src:ByteBuffer):Void;
+    public function wrap(key:Key):Array<Byte>;
+}
