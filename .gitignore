@@ -33,5 +33,6 @@ bin/
 
 run/
 
-# copyright
-javathings/1.16.5.jar
+# compile.hxml
+compile.hxml
+
