@@ -36,3 +36,5 @@ run/
 # compile.hxml
 compile.hxml
 
+# haxe
+src/main/java/**
