@@ -1,3 +1,4 @@
+rmdir "javalibs" /Q /S
 gradle getDeps
 haxe --run BuildFromDirectory
 haxe compile.hxml
