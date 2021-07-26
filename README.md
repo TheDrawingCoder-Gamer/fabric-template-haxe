@@ -1,8 +1,12 @@
 # Fabric Example Mod
 
+## Haxe specifics
+### Limitations
+Haxe currently doesn't export generic types properly, meaning anything that has a type restraint (like crafting recipes) fails. 
 ## Setup
 
 For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+
 
 ## License
 
