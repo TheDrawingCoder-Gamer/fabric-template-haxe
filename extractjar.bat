@@ -1,4 +1,5 @@
 if exist "./outjar" rmdir "./outjar" /Q /S
-mkdir "./outdir"
+mkdir "./outjar"
 cd outjar
 jar xf ../out.jar
+cd ..
