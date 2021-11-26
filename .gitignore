@@ -38,3 +38,7 @@ compile.hxml
 
 # haxe
 src/main/java/**
+
+# project specific
+out.jar
+outjar/**/**
