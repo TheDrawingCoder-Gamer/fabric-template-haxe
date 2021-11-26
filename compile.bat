@@ -7,5 +7,6 @@ haxe compile.hxml
 :: xcopy /E /I "bin/src" "src/main/java" 
 xcopy /E /I "resources/." "outjar"
 del out.jar
-jar cf out.jar outjar/.
+cd outjar
+jar cf ../out.jar **/**
 ./gradlew.bat build
