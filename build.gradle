@@ -63,13 +63,13 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 }
-
+/*
 jar {
 	from("LICENSE") {
 		rename { "${it}_${project.archivesBaseName}"}
 	}
 }
-
+*/
 // configure the maven publication
 publishing {
 	publications {

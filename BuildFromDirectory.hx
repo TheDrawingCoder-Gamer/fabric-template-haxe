@@ -8,7 +8,6 @@ class BuildFromDirectory {
         var dir = FileSystem.readDirectory('javalibs');
         var stinkyFile:Array<String> = ["--class-path haxe-src", "net", "-L hxjava", "--java-lib-extern javax/javax-crypto.jar"];
         for (thing in dir) {
-            trace(thing);
             if (Path.extension(thing)  == 'jar') {
                 stinkyFile.push("--java-lib-extern javalibs/" + thing);
             }
