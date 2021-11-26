@@ -2,8 +2,8 @@
 
 ## Haxe specifics
 ### Limitations
-~~Haxe currently doesn't export generic types properly, meaning anything that has a type restraint (like crafting recipes) fails. ~~
-This has been fixed! Haxe can export directly to JVM which sidesteps this issue, and gradle can read a jar file directly!
+
+Haxe used to not be able to handle type contraints, but this has been sidestepped by directly compiling to JVM, and using the jar as the input. This should be fully working! Please report any bugs. 
 ## Setup
 
 For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
