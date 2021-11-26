@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.8-SNAPSHOT'
+	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -31,6 +31,10 @@ dependencies {
 	// You may need to force-disable transitiveness on them.
 }
 
+remapJar {
+	input = file("out.jar")
+}
+
 processResources {
 	inputs.property "version", project.version
 
@@ -59,13 +63,13 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 }
-
+/*
 jar {
 	from("LICENSE") {
 		rename { "${it}_${project.archivesBaseName}"}
 	}
 }
-
+*/
 // configure the maven publication
 publishing {
 	publications {
