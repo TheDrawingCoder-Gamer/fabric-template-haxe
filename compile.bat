@@ -1,8 +1,4 @@
-rmdir "javalibs" /Q /S
-del compile.hxml
-call ./gradlew.bat getDeps
-
-haxe --run BuildFromDirectory
+call ./enable-autocomplete.bat
 haxe compile.hxml
 call ./extractjar.bat
 xcopy /E /I "resources" "outjar"
