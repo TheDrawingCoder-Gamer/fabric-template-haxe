@@ -3,7 +3,7 @@
 ## Haxe specifics
 ### Limitations
 
-Haxe used to not be able to handle type constraints, but this has been sidestepped by directly compiling to JVM, and using the jar as the input. This should be fully working! Please report any bugs. 
+Mixins are currently unsupported. They must be written in java and currently this project can't build a java project and a haxe project.
 ## Setup
 
 For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
