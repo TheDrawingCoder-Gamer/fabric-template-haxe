@@ -2,7 +2,18 @@ plugins {
 	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
 }
-
+configurations {
+	haxe
+	implementation {
+		extendsFrom haxe
+	}
+}
+sourceSets {
+	main {
+		java.srcDirs = ['java']
+		resources.srcDirs = ['resources']
+	}
+}
 sourceCompatibility = JavaVersion.VERSION_16
 targetCompatibility = JavaVersion.VERSION_16
 
@@ -26,14 +37,11 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
+	haxe files("out.jar")
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
 }
 
-remapJar {
-	input = file("out.jar")
-}
 
 processResources {
 	inputs.property "version", project.version
@@ -63,13 +71,14 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 }
-/*
+
 jar {
 	from("LICENSE") {
 		rename { "${it}_${project.archivesBaseName}"}
 	}
+	from {configurations.haxe.collect {it.isDirectory() ? it : zipTree(it)}}
 }
-*/
+
 // configure the maven publication
 publishing {
 	publications {
