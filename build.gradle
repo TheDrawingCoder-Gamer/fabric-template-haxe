@@ -3,6 +3,9 @@ plugins {
 	id 'maven-publish'
 }
 configurations {
+	// FAT JAR
+	// Any haxe jars will be included in our final jar
+	// making it a "fat" jar
 	haxe
 	implementation {
 		extendsFrom haxe
