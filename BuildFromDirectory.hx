@@ -9,7 +9,9 @@ class BuildFromDirectory {
         var dir = FileSystem.readDirectory('javalibs');
         var stinkyFile:Array<String> = ["--class-path src", TOP_LEVEL_PACKAGE, "-L hxjava", "--java-lib-extern javax/javax-crypto.jar"];
         for (thing in dir) {
-            if (Path.extension(thing)  == 'jar') {
+            // haxe jar being included, stop that
+            // I would disable this in gradle but I don't understand it : )
+            if (Path.extension(thing)  == 'jar' && Path.withoutDirectory(thing) != "out.jar") {
                 stinkyFile.push("--java-lib-extern javalibs/" + thing);
             }
         }

@@ -10,7 +10,7 @@
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/TheDrawingCoder-Gamer/fabric-template-haxe"
   },
 
   "license": "CC0-1.0",
@@ -19,9 +19,12 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.bulbyvr.example.ExampleMod"
+      "net.fabricmc.example.ExampleMod::onInitialize"
     ]
   },
+  "mixins": [
+    "modid.mixins.json"
+  ],
 
   "depends": {
     "fabricloader": ">=0.11.3",
