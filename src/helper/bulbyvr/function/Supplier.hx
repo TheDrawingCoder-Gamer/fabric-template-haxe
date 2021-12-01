@@ -2,7 +2,7 @@ package helper.bulbyvr.function;
 
 import java.util.function.Supplier as JSupplier;
 
-class Supplier<T> implements JSupplier<T> {
+class SupplierRaw<T> implements JSupplier<T> {
 	public var fun:() -> T;
 
 	public function new(func:() -> T) {
@@ -11,5 +11,16 @@ class Supplier<T> implements JSupplier<T> {
 
 	public function get():T {
 		return fun();
+	}
+}
+
+@:forward
+abstract Supplier<T>(SupplierRaw<T>) {
+	public function new (func:() -> T) {
+		this = new SupplierRaw<T>(func);
+	}
+	@:from
+	public static function fromFunc<T>(func:() -> T) {
+		return new Supplier<T>(func);
 	}
 }

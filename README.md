@@ -19,3 +19,5 @@ if you want to upgrade this you can replace all the gradle files, `resources/fab
 If you must do mixins, you can create a `java` folder and put the normal java path to your mixins (which for this project could be `java/main/java/net/bulbyvr/example/mixin/FooMixin.java`). 
 
 I recommend using at least Haxe 4.3.0 (as of 11/30/21 it isn't out yet, so I recommend using cutting edge currently.) This allows you to use jvm defaults. Otherwise, you'll have to write implementations for things you really shouldn't be writing implementations for when implementing interfaces.
+
+Javax Crypto is included as minecraft requires it but haxe doesn't know it exists, thus it requires an extern. Currently this requires having a jar in the repository but if there is another way I'd love to hear it. 
