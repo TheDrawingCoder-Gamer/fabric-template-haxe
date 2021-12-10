@@ -7,7 +7,7 @@ class BuildFromDirectory {
     public static function main() {
         // we only want .net
         var dir = FileSystem.readDirectory('javalibs');
-        var stinkyFile:Array<String> = ["--class-path src", "--macro addGlobalMetadata(\"\", \"@:build(fabric.glue.Glue.mixin())\") ", TOP_LEVEL_PACKAGE, "-L hxjava", "-L hxfabric-glue", "--java-lib-extern javax/javax-crypto.jar"];
+        var stinkyFile:Array<String> = ["--class-path src", TOP_LEVEL_PACKAGE, "-L hxjava", "-L hxfabric-glue", "--java-lib-extern javax/javax-crypto.jar"];
         for (thing in dir) {
             // haxe jar being included, stop that
             // I would disable this in gradle but I don't understand it : )
