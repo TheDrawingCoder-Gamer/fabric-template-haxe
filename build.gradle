@@ -13,7 +13,6 @@ configurations {
 }
 sourceSets {
 	main {
-		java.srcDirs = ['glue']
 		resources.srcDirs = ['resources']
 	}
 }

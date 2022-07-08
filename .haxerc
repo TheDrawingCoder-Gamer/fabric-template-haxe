@@ -1,0 +1,4 @@
+{
+  "version": "haxe4java",
+  "resolveLibs": "scoped"
+}

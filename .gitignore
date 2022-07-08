@@ -44,3 +44,6 @@ out.jar
 outjar
 glue
 glue/**/**
+
+# lix madness
+node_modules
